@@ -50,6 +50,13 @@ function angle_sensor(X, Y){
 		}
 		ds_list_destroy(solidCollisions);
 	}
+	
+	//Tile collision
+	var l = layer_get_id("CollisionA");
+	var tile = layer_tilemap_get_id(l);
+	
+	if(collision_point(floor(X), floor(Y), tile, true, true)) return true;
+	
 }
 
 function line_check(radius_x, radius_y, semi_solid = false){
@@ -86,6 +93,12 @@ function line_check(radius_x, radius_y, semi_solid = false){
 		}
 		ds_list_destroy(solidCollisions);
 	}
+	
+	//Tile collision
+	var l = layer_get_id("CollisionA");
+	var tile = layer_tilemap_get_id(l);
+	
+	if collision_line(floor(x)+X1,floor(y)+Y1,floor(x)+X2,floor(y)+Y2,tile,true,true) return true;
 }
 
 function check_object(x1, y1, x2, y2, semi_solid = false)
